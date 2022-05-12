@@ -7,44 +7,61 @@
 .createAccount__layout {
 	height: 100%;
 	width: 100%;
+	color: hsl(226, 13%, 42%);
 	@include center;
-	.createAccount__layout--left {
+	.layout__container {
 		@include center;
-		flex-direction: column;
-		height: 100%;
-		width: 50%;
-		.image__container {
+		width: 96%;
+		height: 92%;
+		border-radius: 16px;
+		background: hsl(228, 100%, 97%);
+		.createAccount__layout--left {
 			@include center;
-			width: 100%;
-			height: 50%;
-			img {
-				width: 90%;
+			flex-direction: column;
+			height: 100%;
+			width: 50%;
+			.image__container {
+				@include center;
+				width: 100%;
+				height: 50%;
+				img {
+					width: 90%;
+					user-select: none;
+					-webkit-user-drag: none;
+				}
+			}
+			.info {
+				width: 38%;
+				text-align: center;
 				user-select: none;
+				.info__title {
+					font-size: 24px;
+					font-weight: 700;
+					opacity: 0.9;
+					margin-bottom: 16px;
+				}
+				.info__para {
+					font-size: 15px;
+					opacity: 0.6;
+					font-weight: 500;
+					line-height: 24px;
+				}
 			}
 		}
-		.info {
-			width: 38%;
-			text-align: center;
-			color: hsl(226, 13%, 42%);
-			.info__title {
-				font-size: 24px;
-				font-weight: 900;
-                opacity: 0.9;
-                margin-bottom: 16px;
-			}
-			.info__para {
-                font-size: 15px;
-				opacity: 0.6;
-				font-weight: 900;
-                margin-bottom: 16px;
-                line-height: 24px;
+		.createAccount__layout--right {
+			height: 100%;
+			width: 50%;
+			background: #fff;
+			padding: 72px 64px;
+			border-radius: 0px 16px 16px 0px;
+			.form__container {
+				.form__title {
+					color: #000;
+					font-size: 24px;
+					font-weight: 900;
+					margin-bottom: 52px;
+				}
 			}
 		}
-	}
-	.createAccount__layout--right {
-		@include center;
-		height: 100%;
-		width: 50%;
-		background: #fff;
 	}
 }
