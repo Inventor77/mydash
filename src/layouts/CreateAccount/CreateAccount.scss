@@ -1,0 +1,50 @@
+@mixin center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.createAccount__layout {
+	height: 100%;
+	width: 100%;
+	@include center;
+	.createAccount__layout--left {
+		@include center;
+		flex-direction: column;
+		height: 100%;
+		width: 50%;
+		.image__container {
+			@include center;
+			width: 100%;
+			height: 50%;
+			img {
+				width: 90%;
+				user-select: none;
+			}
+		}
+		.info {
+			width: 38%;
+			text-align: center;
+			color: hsl(226, 13%, 42%);
+			.info__title {
+				font-size: 24px;
+				font-weight: 900;
+                opacity: 0.9;
+                margin-bottom: 16px;
+			}
+			.info__para {
+                font-size: 15px;
+				opacity: 0.6;
+				font-weight: 900;
+                margin-bottom: 16px;
+                line-height: 24px;
+			}
+		}
+	}
+	.createAccount__layout--right {
+		@include center;
+		height: 100%;
+		width: 50%;
+		background: #fff;
+	}
+}
