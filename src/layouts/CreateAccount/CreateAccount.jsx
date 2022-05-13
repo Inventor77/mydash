@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './CreateAccount.scss'
 import GraphImg from '../../assets/images/background.png'
+import CustomInput from '../../components/CustomInput/CustomInput'
 
 function CreateAccount() {
+    const [password, setPassword] = useState("")
     return (
         <div className='createAccount__layout'>
             <div className="layout__container">
@@ -25,7 +27,33 @@ function CreateAccount() {
                             Create an account
                         </div>
                         <form >
-
+                            <CustomInput
+                                label="Your email address"
+                                type="email"
+                                name="email"
+                            />
+                            <CustomInput
+                                label="Your password"
+                                type="password"
+                                name="password"
+                                setPassword={setPassword}
+                            />
+                            <CustomInput
+                                label="Confirm password"
+                                type="password"
+                                name="password"
+                                password={password}
+                            />
+                            <CustomInput
+                                label="Your full name"
+                                type="text"
+                                name="text"
+                            />
+                            <CustomInput
+                                label="Your phone number"
+                                type="number"
+                                name="number"
+                            />
                         </form>
                     </div>
                 </div>
