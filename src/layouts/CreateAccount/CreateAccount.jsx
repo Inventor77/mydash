@@ -4,14 +4,26 @@ import GraphImg from '../../assets/images/background.png'
 import CustomInput from '../../components/CustomInput/CustomInput'
 import CustomCheckbox from '../../components/CustomCheckbox/CustomCheckbox'
 
-function CreateAccount() {
-    const [password, setPassword] = useState("")
-    const [inputValue, setInputValue] = useState(false);
 
-    const handleChange = (event) => {
-        const { target: { checked }
-        } = event;
-        setInputValue(checked);
+const INITIAL_FORM_STATE = {
+    email: "",
+    password: "",
+    confirmPassword: "",
+    name: "",
+    phoneNumber: "",
+}
+function CreateAccount() {
+    const [formValues, setFormValues] = useState(INITIAL_FORM_STATE);
+    const [error, setError] = useState(INITIAL_FORM_STATE)
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        
+    }
+    const handleError = (value) => {
+        if (value === "email") {
+            if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value)) console.log("error");
+        }
     }
     return (
         <div className='createAccount__layout'>
@@ -34,41 +46,66 @@ function CreateAccount() {
                         <div className="form__title">
                             Create an account
                         </div>
-                        <form >
+                        <form onSubmit={handleSubmit}>
                             <CustomInput
                                 label="Your email address"
                                 type="email"
                                 name="email"
+                                setValue={setFormValues}
+                                formValues={formValues}
                             />
+                            <div className='error'>
+                                {error.email}
+                            </div>
                             <CustomInput
                                 label="Your password"
                                 type="password"
                                 name="password"
-                                setPassword={setPassword}
+                                setValue={setFormValues}
+                                formValues={formValues}
                             />
+                            <div className='error'>
+                                {error.password}
+                            </div>
                             <CustomInput
                                 label="Confirm your password"
                                 type="password"
-                                name="password"
-                                password={password}
+                                name="confirmPassword"
+                                setValue={setFormValues}
+                                formValues={formValues}
                             />
+                            <div className='error'>
+                                {error.confirmPassword}
+                            </div>
                             <CustomInput
                                 label="Your full name"
                                 type="text"
-                                name="text"
+                                name="name"
+                                setValue={setFormValues}
+                                formValues={formValues}
                             />
+                            <div className='error'>
+                                {error.name}
+                            </div>
                             <div style={{ maxWidth: "50%" }}>
                                 <CustomInput
                                     label="Your phone number"
-                                    type="number"
-                                    name="number"
+                                    type="text"
+                                    name="phoneNumber"
+                                    setValue={setFormValues}
+                                    formValues={formValues}
                                 />
+                                <div className='error'>
+                                    {error.phoneNumber}
+                                </div>
                             </div>
                             <div className='checkbox__container--wrapper'
                             >
-                                <CustomCheckbox inputValue={inputValue}
-                                    handleChange={handleChange} />
+                                <CustomCheckbox />
                                 <div className='checkbox__label'>I read and agree to Terms and Conditions</div>
+                            </div>
+                            <div className="button__container">
+                                <input className='button' type="submit" value="Create account" />
                             </div>
                         </form>
                     </div>

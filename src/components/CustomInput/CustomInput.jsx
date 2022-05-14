@@ -1,14 +1,17 @@
 import React, { useState } from 'react'
 import './CustomInput.scss'
 
-function CustomInput({ label, type, name, password, setPassword }) {
+function CustomInput({ label, type, name, setValue, formValues }) {
     const [inputValue, setInputValue] = useState("");
 
     const handleChange = (event) => {
-        const { target: { value }
-        } = event;
+        const { value, name } = event.target;
         setInputValue(value);
-        if (label === "Your password") setPassword(value);
+        setValue({
+            ...formValues,
+            [name]: value,
+        })
+        console.log(formValues)
     }
 
     return (

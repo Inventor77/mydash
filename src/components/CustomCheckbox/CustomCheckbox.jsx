@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './CustomCheckbox.scss'
 
-function CustomCheckbox({ inputValue, handleChange }) {
+function CustomCheckbox() {
+  const [inputValue, setInputValue] = useState(false);
+
+  const handleChange = (event) => {
+    const { target: { checked }
+    } = event;
+    setInputValue(checked);
+  }
   return (
-    <div className="checkbox--wrappercheckbox--wrapper">
+    <div >
       <svg className="checkbox--symbol">
         <symbol
           id="check"
