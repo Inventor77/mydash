@@ -13,9 +13,14 @@ function CustomInput({ label, type, name, password, setPassword }) {
 
     return (
         <div className='input--custom'>
-            <label className='label' htmlFor={name}>{label}</label>
-            <input className='input' type={type}
-                id={name}
+            <label
+                className='label'
+                htmlFor={name}>
+                {label}
+            </label>
+            <input
+                className='input'
+                type={type}
                 name={name}
                 value={inputValue}
                 onChange={handleChange}
