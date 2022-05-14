@@ -11,7 +11,6 @@ function CustomInput({ label, type, name, setValue, formValues }) {
             ...formValues,
             [name]: value,
         })
-        console.log(formValues)
     }
 
     return (

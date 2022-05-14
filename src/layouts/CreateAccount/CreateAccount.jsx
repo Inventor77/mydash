@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './CreateAccount.scss'
 import GraphImg from '../../assets/images/background.png'
 import CustomInput from '../../components/CustomInput/CustomInput'
@@ -15,11 +15,20 @@ const INITIAL_FORM_STATE = {
 function CreateAccount() {
     const [formValues, setFormValues] = useState(INITIAL_FORM_STATE);
     const [error, setError] = useState(INITIAL_FORM_STATE)
+    const [isSubmit, setIsSubmit] = useState(false);
 
     const handleSubmit = (event) => {
         event.preventDefault();
         setError(handleError(formValues))
+        setIsSubmit(true);
     }
+
+    useEffect(() => {
+        console.log(error);
+        if (Object.keys(error).length === 0 && isSubmit) {
+            console.log(formValues)
+        }
+    }, [error])
 
     return (
         <div className='createAccount__layout'>
@@ -91,9 +100,9 @@ function CreateAccount() {
                                     setValue={setFormValues}
                                     formValues={formValues}
                                 />
-                                <div className='error'>
-                                    {error.phoneNumber}
-                                </div>
+                            </div>
+                            <div className='error'>
+                                {error.phoneNumber}
                             </div>
                             <div className='checkbox__container--wrapper'
                             >
