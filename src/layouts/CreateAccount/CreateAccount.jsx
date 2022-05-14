@@ -3,7 +3,7 @@ import './CreateAccount.scss'
 import GraphImg from '../../assets/images/background.png'
 import CustomInput from '../../components/CustomInput/CustomInput'
 import CustomCheckbox from '../../components/CustomCheckbox/CustomCheckbox'
-
+import { handleError } from '../../utils/handleError'
 
 const INITIAL_FORM_STATE = {
     email: "",
@@ -18,13 +18,9 @@ function CreateAccount() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        
+        setError(handleError(formValues))
     }
-    const handleError = (value) => {
-        if (value === "email") {
-            if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value)) console.log("error");
-        }
-    }
+
     return (
         <div className='createAccount__layout'>
             <div className="layout__container">
