@@ -88,7 +88,7 @@
 							align-items: center;
 							flex-flow: row wrap;
 
-							.checkbox-input {
+							.checkbox__input {
 								position: absolute;
 								visibility: hidden;
 							}
@@ -128,13 +128,13 @@
 								}
 							}
 
-							.checkbox-input:checked + .checkbox span {
+							.checkbox__input:checked + .checkbox span {
 								background: #fff;
 								border-color: #6bb0e3;
 								animation: zoom-in-out 0.3s ease;
 							}
 
-							.checkbox-input:checked + .checkbox span svg {
+							.checkbox__input:checked + .checkbox span svg {
 								stroke-dashoffset: 0;
 							}
 						}
