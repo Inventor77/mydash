@@ -58,41 +58,34 @@ function CreateAccount() {
                                 name="email"
                                 setValue={setFormValues}
                                 formValues={formValues}
+                                error={error.email}
                             />
-                            <div className='error'>
-                                {error.email}
-                            </div>
+
                             <CustomInput
                                 label="Your password"
                                 type="password"
                                 name="password"
                                 setValue={setFormValues}
                                 formValues={formValues}
+                                error={error.password}
                             />
-                            <div className='error'>
-                                {error.password}
-                            </div>
                             <CustomInput
                                 label="Confirm your password"
                                 type="password"
                                 name="confirmPassword"
                                 setValue={setFormValues}
                                 formValues={formValues}
+                                error={error.confirmPassword}
                             />
-                            <div className='error'>
-                                {error.confirmPassword}
-                            </div>
                             <CustomInput
                                 label="Your full name"
                                 type="text"
                                 name="name"
                                 setValue={setFormValues}
                                 formValues={formValues}
+                                error={error.name}
                             />
-                            <div className='error'>
-                                {error.name}
-                            </div>
-                            <div style={{ maxWidth: "50%" }}>
+                            <div className='phoneNumber__container'>
                                 <CustomInput
                                     label="Your phone number"
                                     type="text"
@@ -100,9 +93,9 @@ function CreateAccount() {
                                     setValue={setFormValues}
                                     formValues={formValues}
                                 />
-                            </div>
-                            <div className='error'>
-                                {error.phoneNumber}
+                                <div className='error'>
+                                    {error.phoneNumber}
+                                </div>
                             </div>
                             <div className='checkbox__container--wrapper'
                             >

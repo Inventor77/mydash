@@ -52,14 +52,14 @@
 			height: 100%;
 			width: 50%;
 			background: #fff;
-			padding: 72px 84px;
+			padding: 64px 84px;
 			border-radius: 0px 16px 16px 0px;
 			.form__container {
 				.form__title {
 					color: #000;
 					font-size: 28px;
 					font-weight: 700;
-					margin-bottom: 64px;
+					margin-bottom: 48px;
 				}
 				form {
 					.checkbox__container--wrapper {
@@ -72,6 +72,18 @@
 							font-weight: 500;
 						}
 					}
+					.phoneNumber__container {
+						max-width: 60%;
+						position: relative;
+						.error {
+							position: absolute;
+							font-size: 12px;
+							font-weight: 500;
+							color: #f00;
+							bottom: -24px;
+							left: 6px;
+						}
+					}
 					.button__container {
 						.button {
 							margin-top: 24px;
@@ -81,7 +93,7 @@
 							font-weight: 900;
 							color: #fff;
 							border: none;
-							border-radius: 4px;
+							border-radius: 5px;
 							cursor: pointer;
 						}
 					}
@@ -89,11 +101,4 @@
 			}
 		}
 	}
-}
-
-.error {
-	padding: 4px 0;
-	font-size: 14px;
-	font-weight: 500;
-	color: #f00;
 }

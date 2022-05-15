@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './CustomInput.scss'
 
-function CustomInput({ label, type, name, setValue, formValues }) {
+function CustomInput({ label, type, name, setValue, formValues, error }) {
     const [inputValue, setInputValue] = useState("");
 
     const handleChange = (event) => {
@@ -27,6 +27,9 @@ function CustomInput({ label, type, name, setValue, formValues }) {
                 value={inputValue}
                 onChange={handleChange}
             />
+            <div className='error'>
+                {error ? error : ""}
+            </div>
         </div>
     )
 }
