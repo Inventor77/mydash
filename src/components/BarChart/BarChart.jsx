@@ -12,28 +12,27 @@ const DATA = [
     { type: "G", value: 48 },
 ]
 
+const MARGIN = {
+    top: 36,
+    right: 24,
+    bottom: 24,
+    left: 48
+}
+
 function BarChart() {
     const chartRef = useRef();
 
-
     useEffect(() => {
-        const margin = {
-            top: 36,
-            right: 24,
-            bottom: 24,
-            left: 48
-        }
-
-        const width = parseInt(d3.select('.barChart__container').style('width')) - margin.left - margin.right;
-        const height = parseInt(d3.select('.barChart__container').style('height')) - margin.top - margin.bottom;
+        const width = parseInt(d3.select('.barChart__container').style('width')) - MARGIN.left - MARGIN.right;
+        const height = parseInt(d3.select('.barChart__container').style('height')) - MARGIN.top - MARGIN.bottom;
         console.log(width, height);
         const svg = d3.select(chartRef.current)
-            .attr('width', width + margin.left + margin.right)
-            .attr('height', height + margin.top + margin.bottom)
+            .attr('width', width + MARGIN.left + MARGIN.right)
+            .attr('height', height + MARGIN.top + MARGIN.bottom)
 
         const xAxis = d3.scaleBand()
             .domain(d3.range(DATA.length))
-            .range([margin.left, width - margin.right])
+            .range([MARGIN.left, width - MARGIN.right])
             .padding(.5)
         svg.append('g')
             .attr('transform', 'translate(0,' + height + ')')
@@ -45,9 +44,9 @@ function BarChart() {
 
         const yAxis = d3.scaleLinear()
             .domain([0, max])
-            .range([height, margin.top])
+            .range([height, MARGIN.top])
         svg.append('g')
-            .attr('transform', 'translate(' + margin.left + ',0)')
+            .attr('transform', 'translate(' + MARGIN.left + ',0)')
             .call(d3.axisLeft(yAxis))
 
         svg.append('g')
