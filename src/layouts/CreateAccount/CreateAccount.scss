@@ -11,6 +11,7 @@
 	@include center;
 	.layout__container {
 		@include center;
+		flex-wrap: wrap-reverse;
 		width: 96%;
 		height: 92%;
 		border-radius: 16px;
@@ -52,14 +53,14 @@
 			height: 100%;
 			width: 50%;
 			background: #fff;
-			padding: 64px 84px;
+			padding: 52px 0px 0px 72px;
 			border-radius: 0px 16px 16px 0px;
 			.form__container {
 				.form__title {
 					color: #000;
-					font-size: 28px;
+					font-size: 24px;
 					font-weight: 700;
-					margin-bottom: 48px;
+					margin-bottom: 32px;
 				}
 				form {
 					.checkbox__container--wrapper {
@@ -67,7 +68,7 @@
 						justify-content: flex-start;
 						gap: 8px;
 						.checkbox__label {
-							font-size: 15px;
+							font-size: 14.5px;
 							color: #000;
 							font-weight: 500;
 						}
@@ -80,7 +81,7 @@
 							font-size: 12px;
 							font-weight: 500;
 							color: #f00;
-							bottom: -24px;
+							bottom: -20px;
 							left: 6px;
 							user-select: none;
 						}
@@ -99,6 +100,79 @@
 						}
 					}
 				}
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 1240px) {
+	.createAccount__layout {
+		.layout__container {
+			width: 100%;
+			height: 100%;
+			.createAccount__layout--left {
+				width: 40%;
+				.image__container {
+					height: 30%;
+				}
+				.info {
+					width: 75%;
+					.info__title {
+						font-size: 18px;
+					}
+					.info__para {
+						font-size: 13px;
+					}
+				}
+			}
+			.createAccount__layout--right {
+				width: 60%;
+				padding-left: 32px;
+				.form__container {
+					.form__title {
+						font-size: 22px;
+					}
+					form {
+						.button__container {
+							.button {
+								padding: 12px 52px;
+								font-size: 16px;
+								font-weight: 500;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 960px) {
+	.createAccount__layout {
+		.layout__container {
+			width: 90%;
+			height: 90%;
+			.createAccount__layout--left {
+				display: none;
+			}
+			.createAccount__layout--right {
+				width: 100%;
+				border-radius: 16px;
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.createAccount__layout {
+		.layout__container {
+			width: 100%;
+			height: 100%;
+			.createAccount__layout--left {
+				display: none;
+			}
+			.createAccount__layout--right {
+				width: 100%;
 			}
 		}
 	}
