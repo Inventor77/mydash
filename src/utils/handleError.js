@@ -1,12 +1,13 @@
 export const handleError = (values) => {
 	const errors = {};
-	const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+	const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+	const phoneNumberRegex = /^\d{10}$/i;
 	if (!values.name) {
 		errors.name = "Name is required";
 	}
 	if (!values.email) {
 		errors.email = "Email is required";
-	} else if (!regex.test(values.email)) {
+	} else if (!emailRegex.test(values.email)) {
 		errors.email = "This is not a valid email format";
 	}
 	if (!values.password) {
@@ -25,6 +26,8 @@ export const handleError = (values) => {
 		errors.phoneNumber = "Phone Number is required";
 	} else if (values.phoneNumber.length !== 10) {
 		errors.phoneNumber = "Phone Number must be 10 digit number";
+	} else if (!phoneNumberRegex.test(values.phoneNumber)) {
+		errors.phoneNumber = "This is not a valid phone number";
 	}
 	return errors;
 };
