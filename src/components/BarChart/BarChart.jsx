@@ -1,9 +1,9 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import * as d3 from "d3";
 import './BarChart.scss'
 
 function getRandomArbitrary(min, max) {
-    return Math.random() * (max - min) + min;
+    return Math.floor(Math.random() * (max - min)) + min;
 }
 
 const MARGIN = {
@@ -14,22 +14,13 @@ const MARGIN = {
 }
 
 function BarChart() {
+    const [random, setRandom] = useState(true);
     const chartRef = useRef();
 
-    useEffect(() => {
-        const DATA = [
-            { type: "A", value: getRandomArbitrary(5, 95) },
-            { type: "B", value: getRandomArbitrary(5, 95) },
-            { type: "C", value: getRandomArbitrary(5, 95) },
-            { type: "D", value: getRandomArbitrary(5, 95) },
-            { type: "E", value: getRandomArbitrary(5, 95) },
-            { type: "F", value: getRandomArbitrary(5, 95) },
-            { type: "G", value: getRandomArbitrary(5, 95) },
-        ]
-
+    function drawChart(DATA) {
         const width = parseInt(d3.select('.barChart__container').style('width')) - MARGIN.left - MARGIN.right;
         const height = parseInt(d3.select('.barChart__container').style('height')) - MARGIN.top - MARGIN.bottom;
-        console.log(width, height);
+
         const svg = d3.select(chartRef.current)
             .attr('width', width + MARGIN.left + MARGIN.right)
             .attr('height', height + MARGIN.top + MARGIN.bottom)
@@ -54,7 +45,7 @@ function BarChart() {
             .call(d3.axisLeft(yAxis))
 
         svg.append('g')
-            .attr('fill', '#ddd')
+            .attr('fill', '#89cff0')
             .selectAll('rect')
             .data(DATA)
             .join('rect')
@@ -62,11 +53,34 @@ function BarChart() {
             .attr('y', (d, i) => yAxis(d.value))
             .attr('height', d => yAxis(0) - yAxis(d.value))
             .attr('width', xAxis.bandwidth())
-    }, [])
+    }
+
+    useEffect(() => {
+        const DATA = [
+            { type: "A", value: getRandomArbitrary(5, 95) },
+            { type: "B", value: getRandomArbitrary(5, 45) },
+            { type: "C", value: getRandomArbitrary(5, 65) },
+            { type: "D", value: getRandomArbitrary(5, 25) },
+            { type: "E", value: getRandomArbitrary(5, 100) },
+            { type: "F", value: getRandomArbitrary(5, 50) },
+            { type: "G", value: getRandomArbitrary(5, 90) },
+        ]
+        console.table(DATA);
+        d3.select(chartRef.current).selectAll('*').remove();
+        drawChart(DATA);
+    }, [random])
     return (
         <div className='barChart__container'>
-            <svg ref={chartRef}>
+            <svg className='svg'
+                ref={chartRef}>
             </svg>
+            <div className="button__container">
+                <button
+                    className='button'
+                    onClick={() => setRandom(!random)}>
+                    Click me
+                </button>
+            </div>
         </div>
     )
 }

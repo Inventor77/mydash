@@ -1,7 +1,23 @@
 .barChart__container {
-    height:  600px;
-    width: 900px;
-    border-radius: 16px;
-    box-shadow: -4px 25px 40px -30px rgba(0, 0, 0, 0.4);
-    background: #fff;
+	height: 600px;
+	width: 900px;
+	border-radius: 16px;
+	box-shadow: -4px 25px 40px -30px rgba(0, 0, 0, 0.4);
+	background: #fff;
+	.button__container {
+        position: fixed;
+        top: 24px;
+        right: 24px;
+		.button {
+			margin-top: 24px;
+			background: #43adfe;
+			padding: 14px 64px;
+			font-size: 18px;
+			font-weight: 900;
+			color: #fff;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+	}
 }
