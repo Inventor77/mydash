@@ -4,6 +4,7 @@ import GraphImg from '../../assets/images/background.png'
 import CustomInput from '../../components/CustomInput/CustomInput'
 import CustomCheckbox from '../../components/CustomCheckbox/CustomCheckbox'
 import { handleError } from '../../utils/handleError'
+import { useNavigate } from "react-router-dom";
 
 const INITIAL_FORM_STATE = {
     email: "",
@@ -16,6 +17,7 @@ function CreateAccount() {
     const [formValues, setFormValues] = useState(INITIAL_FORM_STATE);
     const [error, setError] = useState(INITIAL_FORM_STATE)
     const [isSubmit, setIsSubmit] = useState(false);
+    const navigate = useNavigate();
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -27,6 +29,7 @@ function CreateAccount() {
         console.log(error);
         if (Object.keys(error).length === 0 && isSubmit) {
             console.log(formValues)
+            navigate("/chart");
         }
     }, [error])
 
