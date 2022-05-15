@@ -14,7 +14,7 @@ function CustomInput({ label, type, name, setValue, formValues, error }) {
     }
 
     return (
-        <div className='input--custom'>
+        <div id={name} className='input--custom'>
             <label
                 className='label'
                 htmlFor={name}>
