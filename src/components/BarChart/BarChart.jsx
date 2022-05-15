@@ -57,13 +57,13 @@ function BarChart() {
 
     useEffect(() => {
         const DATA = [
-            { type: "A", value: getRandomArbitrary(5, 95) },
-            { type: "B", value: getRandomArbitrary(5, 45) },
-            { type: "C", value: getRandomArbitrary(5, 65) },
-            { type: "D", value: getRandomArbitrary(5, 25) },
-            { type: "E", value: getRandomArbitrary(5, 100) },
-            { type: "F", value: getRandomArbitrary(5, 50) },
-            { type: "G", value: getRandomArbitrary(5, 90) },
+            { type: "A", value: getRandomArbitrary(0, 100) },
+            { type: "B", value: getRandomArbitrary(0, 100) },
+            { type: "C", value: getRandomArbitrary(0, 100) },
+            { type: "D", value: getRandomArbitrary(0, 100) },
+            { type: "E", value: getRandomArbitrary(0, 100) },
+            { type: "F", value: getRandomArbitrary(0, 100) },
+            { type: "G", value: getRandomArbitrary(0, 100) },
         ]
         console.table(DATA);
         d3.select(chartRef.current).selectAll('*').remove();
