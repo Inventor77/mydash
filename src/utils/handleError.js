@@ -1,7 +1,8 @@
 export const handleError = (values) => {
 	const errors = {};
 	const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-	const phoneNumberRegex = /^\d{10}$/i;
+	const phoneNumberRegex =
+		/^\+(9[976]\d|8[987530]\d|6[987]\d|5[90]\d|42\d|3[875]\d|2[98654321]\d|9[8543210]|8[6421]|6[6543210]|5[87654321]|4[987654310]|3[9643210]|2[70]|7|1)\W*\d\W*\d\W*\d\W*\d\W*\d\W*\d\W*\d\W*\d\W*(\d{1,2})$/i;
 	if (!values.name) {
 		errors.name = "Name is required";
 	}
@@ -24,8 +25,6 @@ export const handleError = (values) => {
 	}
 	if (!values.phoneNumber) {
 		errors.phoneNumber = "Phone Number is required";
-	} else if (values.phoneNumber.length !== 10) {
-		errors.phoneNumber = "Phone Number must be 10 digit number";
 	} else if (!phoneNumberRegex.test(values.phoneNumber)) {
 		errors.phoneNumber = "This is not a valid phone number";
 	}

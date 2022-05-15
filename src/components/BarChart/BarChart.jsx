@@ -2,15 +2,9 @@ import React, { useEffect, useRef } from 'react'
 import * as d3 from "d3";
 import './BarChart.scss'
 
-const DATA = [
-    { type: "A", value: 52 },
-    { type: "B", value: 22 },
-    { type: "C", value: 77 },
-    { type: "D", value: 95 },
-    { type: "E", value: 13 },
-    { type: "F", value: 46 },
-    { type: "G", value: 48 },
-]
+function getRandomArbitrary(min, max) {
+    return Math.random() * (max - min) + min;
+}
 
 const MARGIN = {
     top: 36,
@@ -23,6 +17,16 @@ function BarChart() {
     const chartRef = useRef();
 
     useEffect(() => {
+        const DATA = [
+            { type: "A", value: getRandomArbitrary(5, 95) },
+            { type: "B", value: getRandomArbitrary(5, 95) },
+            { type: "C", value: getRandomArbitrary(5, 95) },
+            { type: "D", value: getRandomArbitrary(5, 95) },
+            { type: "E", value: getRandomArbitrary(5, 95) },
+            { type: "F", value: getRandomArbitrary(5, 95) },
+            { type: "G", value: getRandomArbitrary(5, 95) },
+        ]
+
         const width = parseInt(d3.select('.barChart__container').style('width')) - MARGIN.left - MARGIN.right;
         const height = parseInt(d3.select('.barChart__container').style('height')) - MARGIN.top - MARGIN.bottom;
         console.log(width, height);
